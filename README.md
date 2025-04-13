@@ -49,4 +49,4 @@ cd ../..
 echo "" > gtest_report.html
 python .\Log_parser_html.py
 ```
-- Access the "gtest_report.html" in a browser tab and monitor the logs.
+### 6. Access the "gtest_report.html" in a browser tab and monitor the logs.
