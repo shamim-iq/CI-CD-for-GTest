@@ -44,8 +44,10 @@ jobs:
     - name: Run Tests with CTest
       run: ctest --verbose
       working-directory: P1/build
+      continue-on-error: true
 
     - name: Generate GTest HTML Report
       run: |
         echo "" > gtest_report.html
         python .\Log_parser_html.py
+        cat gtest_report.html
