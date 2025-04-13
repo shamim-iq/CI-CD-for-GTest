@@ -29,6 +29,10 @@ jobs:
     - name: Create Build Directory inside P1
       run: mkdir P1\build
 
+    - name: Clone GTest within the project directory
+      run: git clone https://github.com/google/googletest.git
+      working-directory: P1
+
     - name: Configure with CMake
       run: cmake .. -DCMAKE_BUILD_TYPE=Debug
       working-directory: P1/build
