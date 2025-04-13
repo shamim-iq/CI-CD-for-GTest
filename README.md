@@ -39,15 +39,14 @@ cd build
 ```sh
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 cd ..
-cmake --build build                                                                     
-cd .\build\
+cmake --build .                                                                   
 ctest --verbose                                                                         
 ```
 
-### 5. Convert the logs into human readable format
+### 5. Convert the logs into human-readable format
 ```sh
 cd ../..
 echo "" > gtest_report.html
 python .\Log_parser_html.py
 ```
-- Access the "gtest_report.html" in a browser tab and moniter the logs.
+- Access the "gtest_report.html" in a browser tab and monitor the logs.
