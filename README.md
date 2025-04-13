@@ -50,3 +50,7 @@ echo "" > gtest_report.html
 python .\Log_parser_html.py
 ```
 ### 6. Access the "gtest_report.html" in a browser tab and monitor the logs.
+<div align="center">
+  <img src="./Report.JPG" alt="Test-Report" width="50%" height="50%">
+</div>
+
