@@ -1,0 +1,47 @@
+name: Windows CI - GTest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Verify Python version
+      run: python --version
+
+    - name: Install CMake
+      uses: jwlawson/actions-setup-cmake@v1
+      with:
+        cmake-version: '3.26.4'
+
+    - name: Verify CMake version
+      run: cmake --version
+
+    - name: Create Build Directory inside P1
+      run: mkdir P1\build
+
+    - name: Configure with CMake
+      run: cmake .. -DCMAKE_BUILD_TYPE=Debug
+      working-directory: P1/build
+
+    - name: Build with CMake
+      run: cmake --build .
+      working-directory: P1/build
+
+    - name: Run Tests with CTest
+      run: ctest --verbose
+      working-directory: P1/build
+
+    - name: Generate GTest HTML Report
+      run: |
+        echo "" > gtest_report.html
+        python .\Log_parser_html.py
